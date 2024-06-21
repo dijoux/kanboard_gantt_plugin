@@ -1,0 +1,293 @@
+a.button {
+    padding: 1px 6px;
+    border: 1px outset buttonborder;
+    border-radius: 3px;
+    color: buttontext;
+    background-color: buttonface;
+    text-decoration: none;
+}
+
+.gantt .grid-background {
+    fill: none;
+}
+
+.gantt .grid-header {
+    fill: #ffffff;
+    stroke: #e0e0e0;
+    stroke-width: 1.4;
+}
+
+.gantt .grid-row {
+    fill: #ffffff;
+}
+
+.gantt .grid-row:nth-child(even) {
+    fill: #f5f5f5;
+}
+
+.gantt .row-line {
+    stroke: #ebeff2;
+}
+
+.gantt .tick {
+    stroke: #e0e0e0;
+    stroke-width: 0.2;
+}
+
+.gantt .tick.thick {
+    stroke-width: 0.4;
+}
+
+.gantt .today-highlight {
+    fill: #d0d0d0;
+    opacity: 0.5;
+}
+
+.gantt .arrow {
+    fill: none;
+    stroke: #666;
+    stroke-width: 1.4;
+}
+
+.gantt .bar {
+    fill: #b8c2cc;
+    transition: stroke-width 0.3s ease;
+    user-select: none;
+    top: 100px;
+}
+
+.gantt .bar-progress {
+    fill: #a3a3ff;
+}
+
+.gantt .bar-invalid {
+    fill: transparent;
+    stroke: #8d99a6;
+    stroke-width: 1;
+    stroke-dasharray: 5;
+}
+
+.gantt .bar-invalid ~ .bar-label {
+    fill: #555;
+}
+
+.gantt .bar-label {
+    fill: #000;
+    dominant-baseline: central;
+    text-anchor: middle;
+    font-size: 12px;
+    font-weight: lighter;
+}
+
+.gantt .bar-label.big {
+    fill: #555;
+    text-anchor: start;
+}
+
+.gantt .handle {
+    fill: #ddd;
+    cursor: ew-resize;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.gantt .bar-wrapper {
+    cursor: pointer;
+    outline: none;
+}
+
+.gantt .lower-text,
+.gantt .upper-text {
+    font-size: 12px;
+    text-anchor: middle;
+}
+
+.gantt .upper-text {
+    fill: #555;
+}
+
+.gantt .lower-text {
+    fill: #333;
+}
+
+.gantt .hide {
+    display: none;
+}
+
+.gantt-container {
+    position: relative;
+    overflow: auto;
+    font-size: 12px;
+}
+
+.gantt-container .popup-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 0;
+    color: #959da5;
+    border-radius: 3px;
+    min-width: 180px;
+}
+
+.gantt-container .popup-wrapper .title {
+    border-bottom: 3px solid #a3a3ff;
+    padding: 10px;
+}
+
+.gantt-container .popup-wrapper .subtitle {
+    padding: 10px;
+    color: #dfe2e5;
+}
+
+.gantt-container .popup-wrapper .pointer {
+    position: absolute;
+    height: 5px;
+    margin: 0 0 0 -5px;
+    border: 5px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.8);
+}
+
+.gantt > .active {
+    background-color: lightgrey;
+}
+
+/* Task colors */
+.gantt .bar-color-white {
+    fill: white;
+    stroke: #aaa8a8;
+}
+.gantt .bar-color-white .bar-progress {
+    fill: #918e8e;
+}
+
+.gantt .bar-color-yellow .bar {
+    fill: #f5f7c4;
+    stroke: #dfe32d;
+}
+.gantt .bar-color-yellow .bar-progress {
+    fill: #ebef89;
+}
+
+.gantt .bar-color-blue .bar {
+    fill: #dbebff;
+    stroke: #a8cfff;
+}
+.gantt .bar-color-blue .bar-progress {
+    fill: #94c3ff;
+}
+
+.gantt .bar-color-green .bar {
+    fill: #bdf4cb;
+    stroke: #4ae371;
+}
+.gantt .bar-color-green .bar-progress {
+    fill: #85eb9f;
+}
+
+.gantt .bar-color-purple .bar {
+    fill: #dfb0ff;
+    stroke: #cd85fe;
+}
+.gantt .bar-color-purple .bar-progress {
+    fill: #c56fff;
+}
+
+.gantt .bar-color-red .bar {
+    fill: #ffbbbb;
+    stroke: #ff9797;
+}
+.gantt .bar-color-red .bar-progress {
+    fill: #ff7979;
+}
+
+.gantt .bar-color-orange .bar {
+    fill: #ffd7b3;
+    stroke: #ffac62;
+}
+.gantt .bar-color-orange .bar-progress {
+    fill: #ffb572;
+}
+
+.gantt .bar-color-grey .bar {
+    fill: #eeeeee;
+    stroke: #cccccc;
+}
+.gantt .bar-color-grey .bar-progress {
+    fill: #cacaca;
+}
+
+.gantt .bar-color-brown .bar {
+    fill: #d7ccc8;
+    stroke: #4e342e;
+}
+.gantt .bar-color-brown .bar-progress {
+    fill: #bdaba4;
+}
+
+.gantt .bar-color-deep_orange .bar {
+    fill: #ffab91;
+    stroke: #e64a19;
+}
+.gantt .bar-color-deep_orange .bar-progress {
+    fill: #ff7d55;
+}
+
+.gantt .bar-color-dark_grey .bar {
+    fill: #cfd8dc;
+    stroke: #455a64;
+}
+.gantt .bar-color-dark_grey .bar-progress {
+    fill: #aabac1;
+}
+
+.gantt .bar-color-pink .bar {
+    fill: #f48fb1;
+    stroke: #d81b60;
+}
+.gantt .bar-color-pink .bar-progress {
+    fill: #ef5a8c;
+}
+
+.gantt .bar-color-teal .bar {
+    fill: #80cbc4;
+    stroke: #00695c;
+}
+.gantt .bar-color-teal .bar-progress {
+    fill: #5dbdb4;
+}
+
+.gantt .bar-color-cyan .bar {
+    fill: #b2ebf2;
+    stroke: #00bcd4;
+}
+.gantt .bar-color-cyan .bar-progress {
+    fill: #7cdde9;
+}
+
+.gantt .bar-color-lime .bar {
+    fill: #e6ee9c;
+    stroke: #afb42b;
+}
+.gantt .bar-color-lime .bar-progress {
+    fill: #d9e56a;
+}
+
+.gantt .bar-color-light_green .bar {
+    fill: #dcedc8;
+    stroke: #689f38;
+}
+.gantt .bar-color-light_green .bar-progress {
+    fill: #bddd97;
+}
+
+.gantt .bar-color-amber .bar {
+    fill: #ffe082;
+    stroke: #ffa000;
+}
+.gantt .bar-color-amber .bar-progress {
+    fill: #ffd248;
+}
+/* Fin Task colors */
