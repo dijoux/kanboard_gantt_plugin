@@ -55,7 +55,7 @@ class TaskGanttFormatter extends BaseFormatter implements FormatterInterface
         $end = $task['date_due'] ?: $start;
 
         if($start - $end > 0) {
-                $start = $end;
+            $start = $end;
         }
 
         $subtasks_str = "<table>";
@@ -75,7 +75,7 @@ class TaskGanttFormatter extends BaseFormatter implements FormatterInterface
             'end' => date('Y-m-d', $end),
             'progress' => ((!empty($task['nb_subtasks'])) ? round($task['nb_completed_subtasks'] / $task['nb_subtasks'] * 100, 0) : '0'),
             'custom_class' => 'bar-color-' . $task['color_id'],
-            'popup' => '<div class="title">' . $task['title'] . '</div><div class="subtitle"><strong>' . t("Start") . ':</strong> ' . date(t("Y-m-d"), $start) . '<br><strong>' . t("End") . ':</strong> ' . date(t("Y-m-d"), $end) . '<br>' . t("%s%% completed", ((!empty($task['nb_subtasks'])) ? round($task['nb_completed_subtasks'] / $task['nb_subtasks'] * 100, 0) : '0')) . '<br><br><a class="button" href="' . $this->helper->url->href('TaskViewController', 'show', array('project_id' => $task['project_id'], 'task_id' => $task['id'])) . '">' . t("Show") . '</a><br><br>' . $subtasks_str . '</div>',
+            'popup' => '<div class="title">' . $task['title'] . '<br>' . $task['assignee_name'] . '</div><div class="subtitle"><strong>' . t("Start") . ':</strong> ' . date(t("Y-m-d"), $start) . '<br><strong>' . t("End") . ':</strong> ' . date(t("Y-m-d"), $end) . '<br>' . t("%s%% completed", ((!empty($task['nb_subtasks'])) ? round($task['nb_completed_subtasks'] / $task['nb_subtasks'] * 100, 0) : '0')) . '<br><br><span class="button">' . $this->helper->url->link('<i class="fa fa-eye"></i> ' . t('Show'), 'TaskViewController', 'show', array('task_id' => $task['id'])) . '</span><span class="button">' . ($this->helper->projectRole->canUpdateTask($task) ? '&nbsp;' . $this->helper->modal->large('edit', t('Edit'), 'TaskModificationController', 'edit', array('task_id' => $task['id'])) : '') . '</span><br><br>' . $subtasks_str . '<br></div>',
         );
     }
 }
