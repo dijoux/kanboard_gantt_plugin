@@ -54,6 +54,10 @@ class TaskGanttFormatter extends BaseFormatter implements FormatterInterface
         $start = $task['date_started'] ?: time();
         $end = $task['date_due'] ?: $start;
 
+        if($start - $end > 0) {
+                $start = $end;
+        }
+
         $subtasks_str = "<table>";
         foreach($this->subtaskModel->getAll($task['id']) as $subtask) {
             $subtasks_str .= '<tr>';
