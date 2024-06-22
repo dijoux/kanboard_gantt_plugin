@@ -34,7 +34,7 @@ class ProjectGanttFormatter extends BaseFormatter implements FormatterInterface
                     "(SELECT count(*) FROM tasks WHERE tasks.project_id=projects.id AND tasks.is_active='1') AS nb_active_tasks",
                     "(SELECT count(*) FROM tasks WHERE tasks.project_id=projects.id AND tasks.is_active='0') AS nb_closed_tasks",
                     "(SELECT count(*) FROM tasks WHERE tasks.project_id=projects.id) AS nb_tasks",
-                    "(SELECT min(date_started) FROM tasks WHERE tasks.project_id=projects.id) AS start_date_tasks",
+                    "(SELECT min(date_started) FROM tasks WHERE tasks.project_id=projects.id AND date_started>0) AS start_date_tasks",
                     "(SELECT max(date_due) FROM tasks WHERE tasks.project_id=projects.id) AS end_date_tasks"
                 )
                 ->eq('projects.id', $project_['id'])

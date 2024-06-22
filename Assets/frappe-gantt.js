@@ -1444,40 +1444,37 @@ var Gantt = (function () {
         }
 
         make_grid_highlights() {
-            // highlight today's date
-            //if (this.view_is(VIEW_MODE.DAY)) {
-                const x =
-                    (date_utils.diff(date_utils.today(), this.gantt_start, 'hour') /
-                        this.options.step) *
-                    this.options.column_width;
-                const y = 0;
+            const x =
+                (date_utils.diff(date_utils.today(), this.gantt_start, 'hour') /
+                    this.options.step) *
+                this.options.column_width;
+            const y = 0;
 
-                let factor = 1;
-                if(this.view_is(VIEW_MODE.WEEK)) {
-                    factor = 14;
-                }
-                if(this.view_is(VIEW_MODE.MONTH)) {
-                    factor = 60;
-                }
-                if(this.view_is(VIEW_MODE.YEAR)) {
-                    factor = 120;
-                }
-                const width = this.options.column_width / factor;
-                const height =
-                    (this.options.bar_height + this.options.padding) *
-                        this.tasks.length +
-                    this.options.header_height +
-                    this.options.padding / 2;
+            let factor = 1;
+            if(this.view_is(VIEW_MODE.WEEK)) {
+                factor = 7;
+            }
+            if(this.view_is(VIEW_MODE.MONTH)) {
+                factor = 30;
+            }
+            if(this.view_is(VIEW_MODE.YEAR)) {
+                factor = 90;
+            }
+            const width = this.options.column_width / factor;
+            const height =
+                (this.options.bar_height + this.options.padding) *
+                    this.tasks.length +
+                this.options.header_height +
+                this.options.padding / 2;
 
-                createSVG('rect', {
-                    x,
-                    y,
-                    width,
-                    height,
-                    class: 'today-highlight',
-                    append_to: this.layers.grid,
-                });
-            //}
+            createSVG('rect', {
+                x,
+                y,
+                width,
+                height,
+                class: 'today-highlight',
+                append_to: this.layers.grid,
+            });
         }
 
         make_dates() {

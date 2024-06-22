@@ -15,7 +15,7 @@ return array(
     'Gantt chart for this project' => 'Diagramme de Gantt pour ce projet',
     'Project board' => 'Tableau du projet',
     'There is no start date or end date for this project.' => 'Il n\'y a pas de date de début ou de date de fin pour ce projet.',
-    'Projects Gantt chart' => 'Diagramme de Gantt des projets',
+    'Projects Gantt chart' => 'Gantt des projets',
     'Switch to the Gantt chart view' => 'Passer à la vue en diagramme de Gantt',
     'Day' => 'Jour',
     'Week' => 'Semaine',

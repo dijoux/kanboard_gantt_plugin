@@ -1,11 +1,30 @@
 KB.on('dom.ready', function () {
+    function goToLink (selector) {
+        if (! KB.modal.isOpen()) {
+            var element = KB.find(selector);
+
+            if (element !== null) {
+                window.location = element.attr('href');
+            }
+        }
+    }
+    
+    KB.onKey('v+g', function () {
+        goToLink('a.view-gantt');
+    });
+    KB.onKey('g+g', function () {
+        goToLink('a.view-all-gantt');
+    });
+    
     if (KB.exists('#gantt-chart')) {
         var default_view_mode = "Month";
+        
         if ($ls = localStorage.getItem("gantt_view_mode")) {
             default_view_mode = $ls;
             jQuery("ul.gantt li").removeClass("active");
             jQuery('.gantt-change-mode[data-mode-view="' + default_view_mode + '"]').addClass("active");
         }
+        
         var gantt = new Gantt('#gantt-chart', $('#gantt-chart').data('records'), {
             bar_height: 18,
             padding: 7,

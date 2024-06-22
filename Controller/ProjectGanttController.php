@@ -24,7 +24,7 @@ class ProjectGanttController extends BaseController
     {
         $project_ids = $this->projectPermissionModel->getActiveProjectIds($this->userSession->getId());
         $filter = $this->projectQuery
-            ->withFilter(new ProjectTypeFilter(ProjectModel::TYPE_TEAM))
+            //->withFilter(new ProjectTypeFilter(ProjectModel::TYPE_TEAM))
             ->withFilter(new ProjectStatusFilter(ProjectModel::ACTIVE))
             ->withFilter(new ProjectIdsFilter($project_ids));
 
