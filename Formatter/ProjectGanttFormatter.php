@@ -33,17 +33,22 @@ class ProjectGanttFormatter extends BaseFormatter implements FormatterInterface
                     'users.name AS owner_name',
                     "(SELECT count(*) FROM tasks WHERE tasks.project_id=projects.id AND tasks.is_active='1') AS nb_active_tasks",
                     "(SELECT count(*) FROM tasks WHERE tasks.project_id=projects.id AND tasks.is_active='0') AS nb_closed_tasks",
-                    "(SELECT count(*) FROM tasks WHERE tasks.project_id=projects.id) AS nb_tasks"
+                    "(SELECT count(*) FROM tasks WHERE tasks.project_id=projects.id) AS nb_tasks",
+                    "(SELECT min(date_started) FROM tasks WHERE tasks.project_id=projects.id) AS start_date_tasks",
+                    "(SELECT max(date_due) FROM tasks WHERE tasks.project_id=projects.id) AS end_date_tasks"
                 )
                 ->eq('projects.id', $project_['id'])
                 ->join('users', 'id', 'owner_id')
                 ->join('tasks', 'project_id', 'id')
                 ->findOne();
             
-            $start = empty($project['start_date']) ? time() : strtotime($project['start_date']);
-            $end = empty($project['end_date']) ? time() : strtotime($project['end_date']);
-            if($start - $end > 0) {
+            $now = time();
+            $start = empty($project['start_date']) ? ($project['start_date_tasks'] ?: $now) : strtotime($project['start_date']);
+            $end = empty($project['end_date']) ? ($project['end_date_tasks'] ?: $now) : strtotime($project['end_date']);
+            if($start - $end > 0 && $start == $now) {
                 $start = $end;
+            } elseif($start - $end > 0 && $end == $now) {
+                $end = $start;
             }
             $color = next($colors) ?: reset($colors);
 

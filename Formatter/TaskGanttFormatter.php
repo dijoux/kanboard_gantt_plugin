@@ -51,11 +51,14 @@ class TaskGanttFormatter extends BaseFormatter implements FormatterInterface
             $this->columns[$task['project_id']] = $this->columnModel->getList($task['project_id']);
         }
 
-        $start = $task['date_started'] ?: time();
-        $end = $task['date_due'] ?: time();
+        $now = time();
+        $start = $task['date_started'] ?: $now;
+        $end = $task['date_due'] ?: $now;
 
-        if($start - $end > 0) {
+        if($start - $end > 0 && $start == $now) {
             $start = $end;
+        } elseif($start - $end > 0 && $end == $now) {
+            $end = $start;
         }
 
         $subtasks_str = "<table>";
