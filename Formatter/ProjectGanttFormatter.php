@@ -41,7 +41,7 @@ class ProjectGanttFormatter extends BaseFormatter implements FormatterInterface
                 ->findOne();
             
             $start = empty($project['start_date']) ? time() : strtotime($project['start_date']);
-            $end = empty($project['end_date']) ? $start : strtotime($project['end_date']);
+            $end = empty($project['end_date']) ? time() : strtotime($project['end_date']);
             if($start - $end > 0) {
                 $start = $end;
             }

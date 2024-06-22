@@ -52,7 +52,7 @@ class TaskGanttFormatter extends BaseFormatter implements FormatterInterface
         }
 
         $start = $task['date_started'] ?: time();
-        $end = $task['date_due'] ?: $start;
+        $end = $task['date_due'] ?: time();
 
         if($start - $end > 0) {
             $start = $end;
