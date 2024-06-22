@@ -1,19 +1,24 @@
 KB.on('dom.ready', function () {
-    function goToLink (selector) {
+    function goToLink (selector, modal) {
         if (! KB.modal.isOpen()) {
             var element = KB.find(selector);
 
-            if (element !== null) {
+            if (element !== null && modal == false) {
                 window.location = element.attr('href');
+            } else if (element !== null && modal == true) {
+                KB.modal.open(element.attr('href'), 'large', false);
             }
         }
     }
     
     KB.onKey('v+g', function () {
-        goToLink('a.view-gantt');
+        goToLink('a.view-gantt', false);
     });
     KB.onKey('g+g', function () {
-        goToLink('a.view-all-gantt');
+        goToLink('a.view-all-gantt', false);
+    });
+    KB.onKey('n', function () {
+        goToLink('a.js-modal-large', true);
     });
     
     if (KB.exists('#gantt-chart')) {
