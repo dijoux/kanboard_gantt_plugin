@@ -37,9 +37,9 @@ KB.on('dom.ready', function () {
             view_mode: default_view_mode,
             date_format: "DD/MM/YYYY",
             language: jQuery("html").attr("lang"),
-	        custom_popup_html: function(task) {
-	          return task.popup;
-	        },
+            custom_popup_html: function(task) {
+                return task.popup;
+            },
         });
         
         KB.onClick(".gantt-change-mode", function (element) {

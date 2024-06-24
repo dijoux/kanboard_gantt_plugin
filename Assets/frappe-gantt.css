@@ -142,6 +142,15 @@
     color: #dfe2e5;
 }
 
+.gantt-container .popup-wrapper .subtitle h1,
+.gantt-container .popup-wrapper .subtitle h2,
+.gantt-container .popup-wrapper .subtitle h3,
+.gantt-container .popup-wrapper .subtitle h4,
+.gantt-container .popup-wrapper .subtitle h5,
+.gantt-container .popup-wrapper .subtitle h6 {
+    color: #dfe2e5;
+}
+
 .gantt-container .popup-wrapper .pointer {
     position: absolute;
     height: 5px;

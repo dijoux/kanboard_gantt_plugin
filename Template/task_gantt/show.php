@@ -35,7 +35,7 @@
     <?php if (! empty($tasks)): ?>
         <div
             id="gantt-chart"
-            data-records='<?= json_encode($tasks, JSON_HEX_APOS) ?>'
+            data-records='<?= json_encode($tasks, JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP) ?>'
             data-save-url="<?= $this->url->href('TaskGanttController', 'save', array('project_id' => $project['id'], 'plugin' => 'Gantt')) ?>"
             data-label-start-date="<?= t('Start date:') ?>"
             data-label-end-date="<?= t('Due date:') ?>"
