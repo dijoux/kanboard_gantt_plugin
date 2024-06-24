@@ -138,17 +138,47 @@
 }
 
 .gantt-container .popup-wrapper .subtitle {
-    padding: 10px;
     color: #dfe2e5;
 }
 
-.gantt-container .popup-wrapper .subtitle h1,
-.gantt-container .popup-wrapper .subtitle h2,
-.gantt-container .popup-wrapper .subtitle h3,
-.gantt-container .popup-wrapper .subtitle h4,
-.gantt-container .popup-wrapper .subtitle h5,
-.gantt-container .popup-wrapper .subtitle h6 {
+.gantt-container .popup-wrapper .subtitle .subtitle-info,
+.gantt-container .popup-wrapper .subtitle .subtitle-button,
+.gantt-container .popup-wrapper .subtitle .markdown,
+.gantt-container .popup-wrapper .subtitle .subtitle-subtasks {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.gantt-container .popup-wrapper .subtitle .subtitle-info {
+    padding-top: 10px;
+}
+
+.gantt-container .popup-wrapper .subtitle .subtitle-button {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 3px solid #a3a3ff;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #a3a3ff;
+}
+
+.gantt-container .popup-wrapper .subtitle .subtitle-subtasks {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 3px solid #a3a3ff;
+}
+
+.gantt-container .popup-wrapper .subtitle .markdown h1,
+.gantt-container .popup-wrapper .subtitle .markdown h2,
+.gantt-container .popup-wrapper .subtitle .markdown h3,
+.gantt-container .popup-wrapper .subtitle .markdown h4,
+.gantt-container .popup-wrapper .subtitle .markdown h5,
+.gantt-container .popup-wrapper .subtitle .markdown h6 {
     color: #dfe2e5;
+}
+
+.gantt-container .popup-wrapper .subtitle .markdown a {
+    color: #a3a3ff;
 }
 
 .gantt-container .popup-wrapper .pointer {

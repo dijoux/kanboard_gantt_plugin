@@ -43,7 +43,7 @@
         <?php if (empty($projects)): ?>
             <p class="alert"><?= t('No project') ?></p>
         <?php else: ?>
-            <svg id="gantt-chart" data-records='<?= json_encode($projects, JSON_HEX_APOS) ?>'></svg>
+            <svg id="gantt-chart" data-records='<?= json_encode($projects, JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_TAG | JSON_HEX_AMP) ?>'></svg>
         <?php endif ?>
     </section>
 </section>
