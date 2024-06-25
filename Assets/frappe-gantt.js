@@ -1658,11 +1658,21 @@ var Gantt = (function () {
             const parent_element = this.$svg.parentElement;
             if (!parent_element) return;
 
+            let factor = 2;
+            if(this.view_is(VIEW_MODE.WEEK)) {
+                factor = 4;
+            }
+            if(this.view_is(VIEW_MODE.MONTH)) {
+                factor = 24;
+            }
+            if(this.view_is(VIEW_MODE.YEAR)) {
+                factor = 48;
+            }
             const hours_before_first_task = date_utils.diff(
-                this.get_oldest_starting_date(),
+                date_utils.parse(new Date()),
                 this.gantt_start,
                 'hour'
-            );
+            ) - (factor*168);
 
             const scroll_pos =
                 (hours_before_first_task / this.options.step) *
