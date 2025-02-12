@@ -1227,7 +1227,7 @@ var Gantt = (function () {
                 this.options.column_width = 120;
             } else if (view_mode === VIEW_MODE.YEAR) {
                 this.options.step = 24 * 365;
-                this.options.column_width = 120;
+                this.options.column_width = 360;
             }
         }
 
@@ -1458,7 +1458,7 @@ var Gantt = (function () {
                 factor = 30;
             }
             if(this.view_is(VIEW_MODE.YEAR)) {
-                factor = 90;
+                factor = 365;
             }
             const width = this.options.column_width / factor;
             const height =
