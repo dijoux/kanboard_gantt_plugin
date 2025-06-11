@@ -1264,6 +1264,9 @@ var Gantt = (function () {
             }
 
             this.gantt_start = date_utils.start_of(this.gantt_start, 'day');
+            if(this.view_is(VIEW_MODE.YEAR)) {
+                this.gantt_start = new Date(this.gantt_start.getFullYear(), 0, 1);
+            }
             this.gantt_end = date_utils.start_of(this.gantt_end, 'day');
 
             // add date padding on both sides
